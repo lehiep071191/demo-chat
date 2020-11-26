@@ -1,0 +1,11 @@
+<%=form_for @user do |f| %>
+	<%= f.label :name, 'Tên đăng nhập' %>
+	<%= f.text_field :name, class: 'form-control' %>
+	<%= f.label :email, 'Email' %>
+	<%= f.email_field :email, class: 'form-control' %>
+	<%= f.label :password, 'Mật khẩu' %>
+	<%= f.password_field :password, class: 'form-control'%>
+	<%= f.label :password_confirmation, 'Nhắc lại' %>
+	<%= f.password_field :password_confirmation, class: 'form-control' %>
+	<center style = "margin-top: 30px"><%= f.submit 'signup', class: 'btn btn-primary' %></center>
+<% end %>
