@@ -4,9 +4,10 @@ class CommentsController < ApplicationController
 		@comment = @post.comments.build comment_params
 		@comment.user = current_user
 		if @comment.save!
-			ActionCable.server.broadcast 'comment_channel', 
-										content: @comment.content,
-										username: @comment.user.name
+			respond_to do |format|
+				format.html{ redirect_to @comment.post }
+				format.json
+			end	
 		end	
 	end	
 	private

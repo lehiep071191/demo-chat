@@ -12,6 +12,8 @@ class UsersController < ApplicationController
   def create
   	@user = User.create user_params
   	if @user.save!
+      # ConfirmMailJob.set(wait: 1.minutes).perform_later @user
+      HelloJob.set(wait: 1.minutes).perform_later @user
       UserMailer.account_activation(@user).deliver_now
       flash[:info] = "Please check your email to activate your account."
   		redirect_to root_path
