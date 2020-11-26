@@ -1,0 +1,15 @@
+<div>
+	<%= @post.body %>
+</div>
+<%= @post.user.name%>
+<h1>Comment</h1>
+<div class = "append_comment">
+	<% @comments.each do |comment| %>
+		<p><%= comment.user.name %>:</p>
+		<p><%= comment.content %></p>
+		
+	<% end %>
+</div>	
+
+
+<%= render 'comments/form' %>
