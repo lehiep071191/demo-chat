@@ -10,7 +10,8 @@ consumer.subscriptions.create("CommentChannel", {
   },
 
   received(data) {
-  	$('.append_comment').append('<p>'+data.username+'</p>'+'<p>'+data.content+'</p>')
+  	$('.append_comment').append('<p>'+data.username+'</p>'+'<p>'+data.content+'</p>');
+    $('.count-comment').text(data.count);
     // Called when there's incoming data on the websocket for this channel
   }
 });
