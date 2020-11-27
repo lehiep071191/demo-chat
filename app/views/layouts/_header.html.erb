@@ -3,12 +3,19 @@
 	<%= link_to "sample app", root_path, id: "logo" %>
 	<nav>
 		<ul class="nav navbar-nav navbar-right">
+			<% if current_user.admin? %>
+				<li>
+					<%= link_to 'creater_chat_room', new_room_path %>
+				</li>
+			<% end %>
 			<li><%= link_to "Home", root_path %></li>
 			<li><%= link_to "Help",'#' %></li>
 			<li class = "count-comment" style = "color:white">
 				<%= Comment.count %>
 			</li>
+			
 			<% if logged_in? %>
+				<li><%= link_to 'Chat Room', rooms_path %></li>
 				<li><%= link_to "Users", users_path %></li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
