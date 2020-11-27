@@ -1,11 +1,14 @@
+
+<div class = "row">
 <div>
 	<p><%= @post.title %></p>
 	<p><%= @post.body %></p>
-	<p><%= image_tag @post.image if @post.image.attached? %></p>
-</div>
+	<p><%= image_tag @post.display_image if @post.image.attached? %></p>
 <%= @post.user.name%>
-<h1>Comment</h1>
+</div>
+<div class = "col-sm-6" style = "padding: 100px">
 <div class = "append_comment">
+	<h3>Comment</h3>
 	<% @comments.each do |comment| %>
 		<p><%= comment.user.name %>:</p>
 		<p><%= comment.content %></p>
@@ -13,5 +16,7 @@
 	<% end %>
 </div>	
 
+	<%= render 'comments/form' %>
+</div>
 
-<%= render 'comments/form' %>
+</div>
