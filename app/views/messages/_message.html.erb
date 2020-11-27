@@ -1,0 +1,12 @@
+<div class="container1 darker" id = "message-ajax<%= message.id %>">
+  <span alt="Avatar" class="right" style="width:100%;">
+  	<%= gravatar_for message.user %>
+  </span>
+  <p><%= message.content %></p>
+  <span class="time-left"><%= message.created_at %></span>
+  <% if current_user.admin? %>
+  	<span style = "float: right">
+  		<%= link_to 'delete', room_message_path(@room,message), method: :delete, remote: true %>
+  	</span>
+  <% end %>
+</div>

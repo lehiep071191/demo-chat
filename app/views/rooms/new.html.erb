@@ -1,0 +1,6 @@
+<%= form_for (@room) do |f| %>
+	<%= f.label :topic %>
+	<%= f.text_field :topic, placeholder: "ten phong" %>
+
+	<%= f.submit 'create', class: "btn btn-success" %>
+<% end %>

@@ -1,0 +1,76 @@
+
+<div class = "body">
+	<center style="color: skyblue"	><h1><%= @room.topic%></h1></center>
+<style type="text/css">
+	.body {
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 0 20px;
+}
+	.container1 {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.darker {
+ /* border-color: #ccc;
+  background-color: #ddd;*/
+}
+
+.container1::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.container1 img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.container1 img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+.time-right {
+  float: right;
+  color: #aaa;
+}
+
+.time-left {
+  float: left;
+  color: #999;
+}
+</style>
+
+
+  <div class = "append-messages" style = "height: 350px;overflow: auto">
+    <%= render @messages %>
+  </div>
+  <div style = "margin-top: 50px" >
+    <%= form_for [@room, @message], remote: true do |f| %>
+      <%= f.text_field :content %>
+      <span style = "display: none">
+        <%= f.submit 'send', class: "btn btn-message" %>
+      </span>
+    <% end %>
+  </div>
+</div>
+
+<script type="text/javascript">
+ $('#message_content').on('keypress', function(event){
+    if (event.which == 13 ){
+      $('.btn-message').click()
+      $('#message_content').val("")
+      $('.append-messages').scrollTop()
+    }
+  })
+</script>

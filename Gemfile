@@ -62,3 +62,4 @@ gem "redis-namespace"
 gem "redis-rails"
 gem "redis-rack-cache"
 gem 'will_paginate'
+gem 'image_processing'

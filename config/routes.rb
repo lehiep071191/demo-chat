@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'messages/create'
+  get 'messages/destroy'
   get 'password_resets/new'
   get 'password_resets/edit'
   get 'posts/new'
@@ -15,6 +17,9 @@ Rails.application.routes.draw do
   resources :account_activations
   resources :posts do
     resources :comments
+  end
+  resources :rooms do
+    resources :messages
   end
   resources :password_resets, only: [:new, :create, :edit, :update]
  	resources :relationships, only: [:create, :destroy]
