@@ -65,3 +65,4 @@ gem "redis-rails"
 gem "redis-rack-cache"
 gem 'will_paginate'
 gem 'image_processing'
+gem 'rails_12factor', group: :production
